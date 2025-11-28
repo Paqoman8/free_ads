@@ -30,6 +30,14 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'create'
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'store']);
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+// Email Verification
+Route::get('/email/verify', [App\Http\Controllers\Auth\VerificationController::class, 'notice'])
+    ->middleware('auth')->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}', [App\Http\Controllers\Auth\VerificationController::class, 'verify'])
+    ->middleware(['auth', 'signed'])->name('verification.verify');
+Route::post('/email/verification-notification', [App\Http\Controllers\Auth\VerificationController::class, 'send'])
+    ->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
 // Profile (Placeholders)
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
