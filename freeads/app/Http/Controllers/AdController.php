@@ -35,7 +35,7 @@ class AdController extends Controller
             $query->where('price', '<=', $request->input('max_price'));
         }
 
-        $ads = $query->paginate(10)->withQueryString();
+        $ads = $query->paginate(12)->withQueryString();
         return view('ads.index', compact('ads'));
     }
 
