@@ -21,7 +21,9 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Ads
-Route::resource('ads', AdController::class);
+// Ads
+Route::resource('ads', AdController::class)->only(['index', 'show']);
+Route::resource('ads', AdController::class)->except(['index', 'show'])->middleware(['auth', 'verified']);
 
 // Auth
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');

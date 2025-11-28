@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'verified'])->except(['index', 'show']);
-    }
-
     /**
      * Display a listing of the resource.
      */
@@ -85,13 +80,6 @@ class AdController extends Controller
      */
     public function edit(Ad $ad)
     {
-        if ($request->user()->cannot('update', $ad)) {
-            // For now, simple check since we haven't set up policies yet
-            if ($ad->user_id !== Auth::id()) {
-                abort(403);
-            }
-        }
-
         // Manual check fallback if policy not ready
         if ($ad->user_id !== Auth::id()) {
             abort(403);
