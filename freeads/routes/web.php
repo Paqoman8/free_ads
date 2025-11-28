@@ -38,6 +38,6 @@ Route::get('/email/verify/{id}/{hash}', [App\Http\Controllers\Auth\VerificationC
 Route::post('/email/verification-notification', [App\Http\Controllers\Auth\VerificationController::class, 'send'])
     ->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-// Profile (Placeholders)
-Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+// Profile
+Route::get('/profile', [ProfileController::class, 'edit'])->middleware('auth')->name('profile.edit');
+Route::put('/profile', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');
