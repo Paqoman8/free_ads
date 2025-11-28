@@ -23,12 +23,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Ads
 Route::resource('ads', AdController::class);
 
-// Auth (Placeholders)
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'authenticate']);
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/register', [AuthController::class, 'store']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// Auth
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'store']);
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'create'])->name('login');
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'store']);
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 // Profile (Placeholders)
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
