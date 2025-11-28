@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
                 <!-- Logo -->
                 <div class="logo">
                     <a href="{{ url('/') }}" style="display: flex; align-items: center; gap: 8px;">
@@ -23,17 +23,14 @@
 
                 <!-- Main Navigation -->
                 <nav style="flex: 1; margin: 0 48px;">
-                    <ul style="display: flex; gap: 32px; align-items: center; justify-content: center;">
+                    <ul style="display: flex; gap: 32px; align-items: center; justify-content: center; list-style: none; margin: 0; padding: 0;">
                         <li><a href="{{ url('/') }}" style="font-weight: 500;">Home</a></li>
                         <li><a href="{{ route('ads.index') }}" style="font-weight: 500;">Browse Ads</a></li>
-                        {{-- @auth
-                            <li><a href="{{ route('ads.my-ads') }}" style="font-weight: 500;">My Ads</a></li>
-                        @endauth --}}
                     </ul>
                 </nav>
 
                 <!-- Right Side Actions -->
-                <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
                     @guest
                         <a href="{{ route('login') }}" style="font-weight: 500; color: var(--color-text-body);">Login</a>
                         <a href="{{ route('register') }}" class="btn btn-secondary">Post an Ad</a>
@@ -46,7 +43,7 @@
                                 <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary) 0%, #1557b0 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 14px;">
                                     {{ strtoupper(substr(auth()->user()->login, 0, 1)) }}
                                 </div>
-                                <span>{{ auth()->user()->login }}</span>
+                                <span class="hide-mobile">{{ auth()->user()->login }}</span>
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="transition: transform 0.2s;">
                                     <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                 </svg>

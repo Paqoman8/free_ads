@@ -19,7 +19,13 @@
 
         <!-- Search & Filter Form -->
         <div class="card" style="padding: 24px; margin-bottom: 32px;">
-            <form action="{{ route('ads.index') }}" method="GET" class="flex"
+            <!-- Mobile Filter Toggle -->
+            <button onclick="toggleFilters()" class="show-mobile btn btn-outline"
+                style="width: 100%; margin-bottom: 16px; display: none;">
+                🔍 Show Filters
+            </button>
+
+            <form action="{{ route('ads.index') }}" method="GET" id="filterForm" class="filter-form flex"
                 style="gap: 16px; flex-wrap: wrap; align-items: flex-end;">
                 <div style="flex: 1; min-width: 200px;">
                     <label for="search">Search</label>
@@ -49,12 +55,32 @@
                         placeholder="Any">
                 </div>
 
-                <div style="display: flex; gap: 8px;">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                    <a href="{{ route('ads.index') }}" class="btn btn-outline">Reset</a>
+                <div style="display: flex; gap: 8px; width: 100%;">
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">Search</button>
+                    <a href="{{ route('ads.index') }}" class="btn btn-outline"
+                        style="flex: 1; text-align: center;">Reset</a>
                 </div>
             </form>
         </div>
+
+        <script>
+            function toggleFilters() {
+                const form = document.getElementById('filterForm');
+                const button = event.target;
+                if (form.style.display === 'none') {
+                    form.style.display = 'flex';
+                    button.textContent = '🔍 Hide Filters';
+                } else {
+                    form.style.display = 'none';
+                    button.textContent = '🔍 Show Filters';
+                }
+            }
+
+            // Hide filters by default on mobile
+            if (window.innerWidth <= 768) {
+                document.getElementById('filterForm').style.display = 'none';
+            }
+        </script>
 
         <!-- Active Filters Display -->
         @if(request()->hasAny(['search', 'category', 'min_price', 'max_price']))

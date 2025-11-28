@@ -20,7 +20,7 @@
             </div>
         @endif
 
-        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 32px;">
+        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 32px;" class="ad-detail-grid">
             <!-- Main Content -->
             <div>
                 <!-- Image Gallery -->
@@ -43,7 +43,8 @@
                 <div class="card" style="padding: 32px;">
                     <h2 style="margin-bottom: 16px; font-size: 20px;">Description</h2>
                     <p style="line-height: 1.8; color: var(--color-text-body); white-space: pre-line;">
-                        {{ $ad->description }}</p>
+                        {{ $ad->description }}
+                    </p>
                 </div>
             </div>
 
@@ -97,7 +98,8 @@
                         <div>
                             <div style="font-weight: 600; color: var(--color-text-title);">{{ $ad->user->login }}</div>
                             <div style="font-size: 13px; color: var(--color-text-body);">Member since
-                                {{ $ad->user->created_at->format('M Y') }}</div>
+                                {{ $ad->user->created_at->format('M Y') }}
+                            </div>
                         </div>
                     </div>
 

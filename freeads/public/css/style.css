@@ -345,3 +345,217 @@ label {
     height: 16px;
     vertical-align: middle;
 }
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 12px 0;
+    }
+
+    header .container > div {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch !important;
+    }
+
+    header .logo a span {
+        font-size: 24px !important;
+    }
+
+    header nav {
+        margin: 0 !important;
+        order: 3;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 12px !important;
+        align-items: stretch !important;
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 8px 12px;
+        background: var(--color-bg-light);
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    /* User menu on mobile */
+    header > div > div:last-child {
+        order: 2;
+        justify-content: center;
+    }
+}
+
+/* Hero Section Mobile */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 32px !important;
+    }
+
+    .hero p {
+        font-size: 16px !important;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar input,
+    .search-bar select,
+    .search-bar button {
+        width: 100%;
+    }
+}
+
+/* Grid Responsive */
+@media (max-width: 768px) {
+    .grid-3 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Cards on Mobile */
+@media (max-width: 640px) {
+    .card {
+        border-radius: 8px;
+    }
+
+    .card-body {
+        padding: 16px;
+    }
+}
+
+/* Forms on Mobile */
+@media (max-width: 768px) {
+    /* Two-column grids become single column */
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Buttons stack vertically */
+    .flex[style*="gap"] {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Ad Details Page Mobile */
+@media (max-width: 768px) {
+    div[style*="grid-template-columns: 1fr 400px"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Filter Form Mobile */
+@media (max-width: 768px) {
+    .filter-form {
+        flex-direction: column !important;
+    }
+
+    .filter-form > div {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+}
+
+/* Table Responsive */
+@media (max-width: 640px) {
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Hide on Mobile */
+.hide-mobile {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Show only on Mobile */
+.show-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .show-mobile {
+        display: block !important;
+    }
+}
+
+/* Container padding on mobile */
+@media (max-width: 640px) {
+    .container {
+        padding: 0 16px;
+    }
+}
+
+/* Spacing adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px !important;
+    }
+
+    h2 {
+        font-size: 24px !important;
+    }
+
+    h3 {
+        font-size: 20px !important;
+    }
+}
+
+/* Ad Detail Page Responsive */
+@media (max-width: 768px) {
+    .ad-detail-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Home Page Category Grid Mobile */
+@media (max-width: 640px) {
+    div[style*="grid-template-columns: repeat(auto-fit"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Form Buttons Mobile - Full Width */
+@media (max-width: 768px) {
+    .btn {
+        padding: 12px 16px;
+    }
+    
+    /* Action button containers */
+    div[style*="display: flex"][style*="gap"] > .btn,
+    div[style*="display: flex"][style*="gap"] > a.btn {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+/* Profile Stats Grid Mobile */
+@media (max-width: 640px) {
+    div[style*="grid-template-columns: repeat(auto-fit, minmax(150px"] {
+        grid-template-columns: 1fr !important;
+    }
+}
