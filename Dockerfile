@@ -1,7 +1,7 @@
 # ---------------------------------------------------------
 # 1. Base image : PHP 8.2-FPM avec toutes les extensions nécessaires
 # ---------------------------------------------------------
-FROM php:8.2-fpm
+FROM php:8.4-fpm-bullseye
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -33,6 +33,11 @@ COPY . .
 # Donner les bonnes permissions (important pour Render)
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 storage bootstrap/cache
+
+RUN fallocate -l 2G /swapfile && \
+    chmod 600 /swapfile && \
+    mkswap /swapfile && \
+    swapon /swapfile
 
 # ---------------------------------------------------------
 # 4. Installer les dépendances PHP
