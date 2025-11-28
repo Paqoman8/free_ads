@@ -30,6 +30,10 @@ WORKDIR /var/www/html
 # Copier tout le code du projet
 COPY . .
 
+# Fix permissions for Laravel storage and cache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
 # Donner les bonnes permissions (important pour Render)
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 storage bootstrap/cache
@@ -43,6 +47,8 @@ RUN chown -R www-data:www-data /var/www/html \
 # 4. Installer les dépendances PHP
 # ---------------------------------------------------------
 RUN composer install --no-dev --optimize-autoloader
+
+RUN php artisan storage:link || true
 
 # ---------------------------------------------------------
 # 5. Build configuration Laravel
