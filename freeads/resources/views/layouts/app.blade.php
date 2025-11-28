@@ -72,6 +72,7 @@
                         <li><a href="{{ route('register') }}" class="btn btn-primary">Post an Ad</a></li>
                     @endguest
                     @auth
+                        <li><a href="{{ route('ads.my-ads') }}">My Ads</a></li>
                         <li><a href="{{ route('profile.edit') }}">Profile</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST" style="display: inline;">

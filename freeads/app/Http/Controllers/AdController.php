@@ -40,6 +40,15 @@ class AdController extends Controller
     }
 
     /**
+     * Display the authenticated user's ads.
+     */
+    public function myAds()
+    {
+        $ads = auth()->user()->ads()->latest()->paginate(12);
+        return view('ads.my-ads', compact('ads'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()

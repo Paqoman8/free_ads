@@ -24,6 +24,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Ads
 Route::resource('ads', AdController::class)->except(['index', 'show'])->middleware(['auth', 'verified']);
 Route::resource('ads', AdController::class)->only(['index', 'show']);
+Route::get('/my-ads', [AdController::class, 'myAds'])->middleware('auth')->name('ads.my-ads');
 
 // Auth
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
