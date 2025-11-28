@@ -1,0 +1,299 @@
+/* FreeAds Design System - Main Stylesheet */
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+/* CSS Variables - Color Palette */
+:root {
+    /* Main Colors */
+    --color-primary: #1A73E8;
+    --color-secondary: #FF6F3C;
+    --color-bg-light: #F5F7FA;
+    --color-white: #FFFFFF;
+    --color-text-title: #1E1E1E;
+    --color-text-body: #4A4A4A;
+    --color-border: #E5E7EB;
+    --color-success: #4CAF50;
+    --color-error: #DC3545;
+    
+    /* Spacing Scale (8px base) */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-h1: 32px;
+    --font-size-h2: 28px;
+    --font-size-h3: 22px;
+    --font-size-h4: 18px;
+    --font-size-body: 16px;
+    --font-size-small: 14px;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text-body);
+    background-color: var(--color-bg-light);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-title);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: var(--font-size-h1); font-weight: 700; line-height: 1.2; }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); }
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Utility Classes */
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: var(--font-size-body);
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: #1557b0;
+    opacity: 1;
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: #e65a2b;
+    opacity: 1;
+}
+
+.btn-outline {
+    background-color: var(--color-white);
+    color: var(--color-text-title);
+    border: 1px solid var(--color-border);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-bg-light);
+}
+
+/* Header */
+header {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+header .logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+header nav a {
+    color: var(--color-text-body);
+    font-weight: 500;
+}
+
+header nav a:hover {
+    color: var(--color-primary);
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-bg-light);
+    padding: var(--spacing-xl) 0;
+    margin-top: var(--spacing-xl);
+    text-align: center;
+    color: var(--color-text-body);
+    border-top: 1px solid var(--color-border);
+}
+
+/* Cards */
+.card {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: var(--color-bg-light);
+}
+
+.card-body {
+    padding: var(--spacing-md);
+}
+
+.card-title {
+    font-size: var(--font-size-h4);
+    font-weight: 600;
+    color: var(--color-text-title);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* Forms */
+input, select, textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: var(--font-size-body);
+    font-family: var(--font-family);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: var(--color-white);
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    color: var(--color-text-title);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1557b0 100%);
+    color: var(--color-white);
+    padding: 60px 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero h1 {
+    color: var(--color-white);
+    font-size: 48px;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+}
+
+/* Search Bar */
+.search-bar {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: var(--spacing-sm);
+    display: flex;
+    gap: var(--spacing-sm);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.search-bar input {
+    border: none;
+    flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    header nav ul {
+        gap: var(--spacing-sm);
+    }
+}
