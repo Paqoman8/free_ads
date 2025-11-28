@@ -34,10 +34,10 @@ COPY . .
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 storage bootstrap/cache
 
-RUN fallocate -l 2G /swapfile && \
-    chmod 600 /swapfile && \
-    mkswap /swapfile && \
-    swapon /swapfile
+# RUN fallocate -l 2G /swapfile && \
+#     chmod 600 /swapfile && \
+#     mkswap /swapfile && \
+#     swapon /swapfile
 
 # ---------------------------------------------------------
 # 4. Installer les dépendances PHP
