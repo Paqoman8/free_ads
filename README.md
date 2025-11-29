@@ -20,6 +20,15 @@ FreeAds is a modern, minimalistic, and user-friendly platform for posting and br
 - **Filtering**: Filter ads by Category (Electronics, Vehicles, Furniture, etc.) and Price Range.
 - **Responsive Design**: Fully optimized for mobile, tablet, and desktop devices.
 
+## Screenshots
+
+|                   Home Page                    |               Ads Listing                |
+| :--------------------------------------------: | :--------------------------------------: |
+|    ![Home Page](Docs/Screenshots/Home.png)     | ![Ads Listing](Docs/Screenshots/Ads.png) |
+|                 **Ad Details**                 |                **My Ads**                |
+| ![Ad Details](Docs/Screenshots/Ad_details.png) |  ![My Ads](Docs/Screenshots/My_ads.png)  |
+
+
 ## Tech Stack
 
 -   **Backend**: [Laravel 12](https://laravel.com) (PHP 8.2+)
