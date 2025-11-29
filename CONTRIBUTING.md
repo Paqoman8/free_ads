@@ -7,7 +7,7 @@ Thank you for considering contributing to FreeAds! We welcome contributions from
 1.  **Fork the repository**: Click the "Fork" button at the top right of the repository page.
 2.  **Clone your fork**:
     ```bash
-    git clone https://github.com/your-username/free_ads.git
+    git clone https://github.com/Paqoman8/free_ads.git
     cd free_ads
     ```
 3.  **Create a branch**: Create a new branch for your feature or bug fix.
