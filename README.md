@@ -48,7 +48,7 @@ Before you begin, ensure you have the following installed:
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/free_ads.git
+    git clone https://github.com/Paqoman8/free_ads.git
     cd free_ads
     ```
 
